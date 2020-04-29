@@ -1,1 +1,18 @@
-<p>hit-location works!</p>
+<section class="hit-location-type-selector">
+    <button>Bipedal</button> 
+    <button disabled>Quadrupedal</button>
+</section>
+<section class="hit-location-holder">
+    <div>bipedal</div>
+    <div *ngIf="false">Atacking Direction:</div>
+    <select disabled *ngIf="false">
+        <option value="front" selected>front</option>
+        <option value="frontRight">front right</option>
+        <option value="frontLeft">front left</option>
+        <option value="backRight">back right</option>
+        <option value="backLeft">back left</option>
+        <option value="back">back</option>
+    </select>
+    <button (click)="roll()">Roll</button>
+    <div>Result: {{result}}</div>
+</section>

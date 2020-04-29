@@ -1,0 +1,44 @@
+.page {
+    display: grid;
+    grid-template-columns:  20vw auto 20vw;
+    grid-template-rows:  10vh 5vh 70vh 10vh 5vh;
+    padding: 0;
+    header {
+        grid-column: 1 / 4;
+        grid-row: 1 / 2;
+        background-color: darkcyan;
+        .title {
+            color: white;
+            font-size: 2rem;
+            margin: calc( 5vh - 1rem ) auto 0;
+            width: fit-content;
+        }
+    }
+    nav {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+        border-bottom: 2px solid darkcyan;
+    }
+    .content {
+        grid-column: 2 / 3;
+        grid-row: 3 / 4;
+    }
+    footer {
+        grid-column: 1 / 4;
+        grid-row: 5 / 6;
+        background-color: darkcyan;
+        color: white
+    }
+    .ads-left {
+        grid-column: 1 / 2;
+        grid-row: 3 / 4;
+    }
+    .ads-right {
+        grid-column: 3 / 4;
+        grid-row: 3 / 4;
+    }
+    .ads-bottom {
+        grid-column: 2 / 3;
+        grid-row: 4 / 5;
+    }
+}
