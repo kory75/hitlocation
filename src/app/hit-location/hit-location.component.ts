@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+
 
 @Component({
   selector: 'app-hit-location',
@@ -10,6 +13,7 @@ export class HitLocationComponent implements OnInit {
   constructor() { }
 
   public result: string ='';
+  public layout3d: boolean = false;
 
   ngOnInit(): void {
   }

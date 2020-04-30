@@ -7,7 +7,7 @@ import { HitLocationComponent } from './hit-location/hit-location.component';
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'hitlocation', component: HitLocationComponent },
-  { path: '',   redirectTo: '/home', pathMatch: 'full' },
+  { path: '',   redirectTo: 'home', pathMatch: 'full' },
   { path: '**', component: HomeComponent },
 ];
 
