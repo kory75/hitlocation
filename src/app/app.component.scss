@@ -6,7 +6,7 @@
     header {
         grid-column: 1 / 4;
         grid-row: 1 / 2;
-        background-color: darkcyan;
+        background-color: rgb(20, 9, 168);
         .title {
             color: white;
             font-size: 2rem;
@@ -17,7 +17,7 @@
     nav {
         grid-column: 2 / 3;
         grid-row: 2 / 3;
-        border-bottom: 2px solid darkcyan;
+        border-bottom: 2px solid rgb(20, 9, 168);
         display: flex;
         justify-content: space-between;
         .nav-buttons {
@@ -37,7 +37,7 @@
     footer {
         grid-column: 1 / 4;
         grid-row: 5 / 6;
-        background-color: darkcyan;
+        background-color: rgb(20, 9, 168);
         color: white
 
     }

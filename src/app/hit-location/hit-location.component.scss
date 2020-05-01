@@ -1,109 +1,183 @@
+@import '../mixins.scss'; 
 
-
-.hexagon-holder {
-    width: 100%;
-    height:400px;
+.hit-location-type-selector {
     display: flex;
-    transition: all 0.5s ease;
-    &.layout3d {
-        -webkit-transform: perspective(600px) rotateX(50deg);
-        -moz-transform: perspective(600px) rotateX(50deg);
-        -ms-transform: perspective(600px) rotateX(50deg);
-        -o-transform: perspective(600px) rotateX(50deg);
-        transform: perspective(600px) rotateX(50deg);
-        perspective-origin: center;
-        transform-origin: center center;
+    flex-wrap: wrap;
+    padding: 5px;
+    border-bottom: 1px solid #bcbcbc;
+    button {
+        margin-left: 5px;
+        margin-bottom: 5px;
     }
-    .hexagon-column {
+}
+.hit-location-holder{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .layout-selector {
         display: flex;
         flex-direction: column;
-        padding: 20px 10px;
-        &.column-right {
-            margin-top: 53px;
-            margin-left: -50px;
-        }
-        &.column-left {
-            margin-top: 53px;
-            margin-right: -50px;
-        }
-        .hexagon:before {
-            content: " ";
-            width: 0; 
-            height: 0;
-            border-right: 30px solid #6C6;
-            border-top: 52px solid transparent;
-            border-bottom: 52px solid transparent;
-            position: absolute;
-            top: 0;
-            left: -30px;
-        }
-        
-        .hexagon {
-            margin-top: 30px;
-            width: 60px;
-            height: 104px;
-            background-color: #6C6;
-            position: relative;
-            margin: 1px 31px;
-            text-align: center;
-            &.hexagon-center {
-                span {
-                    margin-top: 80px;
-                    display: block;
-                }
+        padding-top: 20px;
+        padding-left: 5px;
+        border-right: 1px solid #bcbcbc;
+        flex: 85px 1 1;
+        z-index: 100;
+    }
+    .height-selector {
+        display: flex;
+        flex-direction: column;
+        padding: 20px 5px 0 20px;
+        border-left: 1px solid #bcbcbc;
+        flex: 60px 0 0;
+        text-align: center;
+    }
+    .reach-selector{
+        display: flex;
+        flex-direction: column;
+        padding: 20px 5px 0 20px;
+        text-align: center;
+    }
+    .roll {
+        flex: 100%;
+    }
+    .result {
+        border-top: 1px solid #bcbcbc;
+        border-bottom: 2px solid rgb(20, 9, 168);
+        width: 100%;
+        padding: 20px;
+    }
+    .hexagon-holder {
+        flex: 325px 0 0;
+        height:360px;
+        display: flex;
+        transition: all 0.5s ease;
+        &.layout3d {
+            @include perspectiveRotateXZ(50deg, 0deg);
+            perspective-origin: center;
+            transform-origin: center center;
+            &.direction60 {
+                @include perspectiveRotateXZ(50deg, 60deg);
+            }
+            &.direction120 {
+                @include perspectiveRotateXZ(50deg, 120deg);
+            }
+            &.direction180 {
+                @include perspectiveRotateXZ(50deg, 180deg);
+            }
+            &.direction240 {
+                @include perspectiveRotateXZ(50deg, 240deg);
+            }
+            &.direction300 {
+                @include perspectiveRotateXZ(50deg, 300deg);
             }
         }
-        
-        .hexagon:after {
-            content: "";
-            width: 0;
-            position: absolute;
-            bottom: 0;
-            left: 60px;
-            border-left: 30px solid #6C6;
-            border-top: 52px solid transparent;
-            border-bottom: 52px solid transparent;
+        .hexagon-column {
+            display: flex;
+            flex-direction: column;
+            padding: 20px 10px;
+            &.column-right {
+                margin-top: 53px;
+                margin-left: -50px;
+            }
+            &.column-left {
+                margin-top: 53px;
+                margin-right: -50px;
+            }
+            .hexagon:before {
+                content: " ";
+                width: 0; 
+                height: 0;
+                border-right: 30px solid rgb(30, 202, 233);
+                border-top: 52px solid transparent;
+                border-bottom: 52px solid transparent;
+                position: absolute;
+                top: 0;
+                left: -30px;
+            }
+            
+            .hexagon {
+                margin-top: 30px;
+                width: 60px;
+                height: 104px;
+                background-color: rgb(30, 202, 233);
+                position: relative;
+                margin: 1px 31px;
+                text-align: center;
+                &.hexagon-center {
+                    span {
+                        margin-top: 80px;
+                        display: block;
+                    }
+                }
+            }
+            
+            .hexagon:after {
+                content: "";
+                width: 0;
+                position: absolute;
+                bottom: 0;
+                left: 60px;
+                border-left: 30px solid rgb(30, 202, 233);
+                border-top: 52px solid transparent;
+                border-bottom: 52px solid transparent;
+            }
         }
     }
-
-}
-.target {
-    position: absolute;
-    margin-top: -265px;
-    margin-left: 122px;
-    font-size: 80px;
-    transition: all 0.5s ease;
-    &.layout3d {
-        margin-top: -311px;
-        font-size: 120px;
-        margin-left: 103px;
+    .target {
+        position: absolute;
+        margin-top: -225px;
+        margin-left: 122px;
+        font-size: 80px;
+        transition: all 0.5s ease;
+        pointer-events: none;
+        &.layout3d {
+            margin-top: -330px;
+            font-size: 200px;
+            margin-left: 63px;
+            @include perspectiveRotateXY(-50deg, 0deg);
+        }
+        &.direction60 {
+            @include perspectiveRotateXY(-50deg, -60deg);
+        }
+        &.direction120 {
+            @include perspectiveRotateXY(-50deg, -120deg);
+        }
+        &.direction180 {
+            @include perspectiveRotateXY(-50deg, -180deg);
+        }
+        &.direction240 {
+            @include perspectiveRotateXY(-50deg, -240deg);
+        }
+        &.direction300 {
+            @include perspectiveRotateXY(-50deg, -300deg);
+        }
     }
-}
-.attack-direction{
-    display: block;
-    font-size: 60px;
-    margin-top: 22px;
-    &.attack-front {
+    .attack-direction{
+        display: block;
+        font-size: 60px;
+        margin-top: 22px;
+        color: #cccccc;
         cursor: pointer;
-    }
-    &.attack-front-right {
-        color: #cccccc;
-        transform: rotate(-60deg);
-    }
-    &.attack-front-left {
-        color: #cccccc;
-        transform: rotate(60deg);
-    }
-    &.attack-back {
-        color: #cccccc;
-        transform: rotate(180deg);
-    }
-    &.attack-back-left {
-        color: #cccccc;
-        transform: rotate(120deg);
-    }
-    &.attack-back-right {
-        color: #cccccc;
-        transform: rotate(-120deg);
-    }
+        &.selected {
+            color: #222222;
+        }
+        &.attack-front {
+        
+        }
+        &.attack-front-right {
+            transform: rotate(-60deg);
+        }
+        &.attack-front-left {
+            transform: rotate(60deg);
+        }
+        &.attack-back {
+            transform: rotate(180deg);
+        }
+        &.attack-back-left {
+            transform: rotate(120deg);
+        }
+        &.attack-back-right {
+            transform: rotate(-120deg);
+        }
+}
 }

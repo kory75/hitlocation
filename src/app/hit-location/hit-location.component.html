@@ -1,48 +1,101 @@
 <section class="hit-location-type-selector">
     <button mat-raised-button color="primary">Bipedal</button> 
     <button mat-raised-button color="primary" disabled>Quadrupedal</button>
+    <button mat-raised-button color="primary" disabled>Mounted</button>
+    <button mat-raised-button color="primary" disabled>Serpent</button>
+    <button mat-raised-button color="primary" disabled>Bipedal Winged</button>
+    <button mat-raised-button color="primary" disabled>Quadrupedal Winged</button>
+    <button mat-raised-button color="primary" disabled>Insect</button>
+    <button mat-raised-button color="primary" disabled>Insect Winged</button>
+    <button mat-raised-button color="primary" disabled>Arachnid</button>
 </section>
 <section class="hit-location-holder">
-    <div>
+    <section class="layout-selector">
         <label for="viewmode">Layout: </label>
-        <button mat-fab color="primary" (click)="layout3d=false" id="viewmode">2D</button>
-        <button mat-fab color="primary" (click)="layout3d=true">
+        <button mat-fab color="primary" (click)="set2DLayout()" id="viewmode">2D</button>
+        <button mat-fab color="primary" (click)="set3DLayout()">
             <i class="material-icons">3d_rotation</i>
         </button>
-    </div>
-    <section class="hexagon-holder" [ngClass]="{'layout3d': layout3d}">
-        <div class="hexagon-column column-left">
-            <div class="hexagon">
-                <i class="material-icons attack-direction attack-back-left">keyboard_arrow_up</i>
-            </div>
-            <div class="hexagon">
-                <i class="material-icons attack-direction attack-front-left">keyboard_arrow_up</i>
-            </div>
-        </div>
-        <div class="hexagon-column">
-            <div class="hexagon">
-                <i class="material-icons attack-direction attack-back">keyboard_arrow_up</i>
-            </div>
-            <div class="hexagon hexagon-center">
-                <span>Target</span>
-            </div>
-            <div class="hexagon">
-                <i class="material-icons attack-direction attack-front">keyboard_arrow_up</i>
-                <span>Front</span>
-            </div>
-        </div>
-        <div class="hexagon-column column-right">
-            <div class="hexagon">
-                <i class="material-icons attack-direction attack-back-right">keyboard_arrow_up</i>
-            </div>
-            <div class="hexagon">
-                <i class="material-icons attack-direction attack-front-right">keyboard_arrow_up</i>
-            </div>
+        <label for="viewmode">Rotate: </label>
+        <div class="rotate-button-holder">
+            <button mat-fab color="primary" (click)="rotateRight()" id="viewmode"  [disabled]="!layout3d">
+                <i class="material-icons">rotate_right</i>
+            </button>
+            <button mat-fab color="primary" (click)="rotateLeft()" id="viewmode" [disabled]="!layout3d">
+                <i class="material-icons">rotate_left</i>
+            </button>
         </div>
     </section>
-    <i class="material-icons target" [ngClass]="{'layout3d': layout3d}">accessibility</i>
-    <mat-icon class="target" svgIcon="accessibility" aria-hidden="false" aria-label="target"></mat-icon>
-
-    <button mat-raised-button color="primary" (click)="roll()">Roll</button>
-    <div>Result: {{result}}</div>
+    <section class="hexagon-column">
+        <section class="hexagon-holder" [ngClass]="{'layout3d': layout3d, 
+                                                    'direction60': rotation===60, 
+                                                    'direction120': rotation===120,
+                                                    'direction180': rotation===180,
+                                                    'direction240': rotation===240,
+                                                    'direction300': rotation===300}">
+            <div class="hexagon-column column-left">
+                <div class="hexagon">
+                    <i class="material-icons attack-direction attack-back-left"
+                        [ngClass]="{'selected': attackDirection===2}" 
+                        (click)="setAttackDirection(2)">keyboard_arrow_up</i>
+                </div>
+                <div class="hexagon">
+                    <i  class="material-icons attack-direction attack-front-left"
+                        [ngClass]="{'selected': attackDirection===1}" 
+                        (click)="setAttackDirection(1)">keyboard_arrow_up</i>
+                </div>
+            </div>
+            <div class="hexagon-column">
+                <div class="hexagon">
+                    <i  class="material-icons attack-direction attack-back"
+                        [ngClass]="{'selected': attackDirection===3}" 
+                        (click)="setAttackDirection(3)">keyboard_arrow_up</i>
+                </div>
+                <div class="hexagon hexagon-center">
+                    <span>Target</span>
+                </div>
+                <div class="hexagon">
+                    <i  class="material-icons attack-direction attack-front" 
+                        [ngClass]="{'selected': attackDirection===0}" 
+                        (click)="setAttackDirection(0)">keyboard_arrow_up</i>
+                    <span>Front</span>
+                </div>
+            </div>
+            <div class="hexagon-column column-right">
+                <div class="hexagon">
+                    <i  class="material-icons attack-direction attack-back-right"
+                        [ngClass]="{'selected': attackDirection===4}" 
+                        (click)="setAttackDirection(4)">keyboard_arrow_up</i>
+                </div>
+                <div class="hexagon">
+                    <i class="material-icons attack-direction attack-front-right"
+                    [ngClass]="{'selected': attackDirection===5}" 
+                    (click)="setAttackDirection(5)">keyboard_arrow_up</i>
+                </div>
+            </div>
+        </section>
+        <i  class="material-icons target"
+            [ngClass]="{'layout3d': layout3d,
+                        'direction60': rotation===60, 
+                        'direction120': rotation===120,
+                        'direction180': rotation===180,
+                        'direction240': rotation===240,
+                        'direction300': rotation===300}">accessibility</i>
+    </section>
+    
+    <section class="height-selector">
+        <label for="hight-selector">Target Height</label>
+        <button mat-raised-button color="primary" color="primary" (click)="layout3d=false" id="hight-selector" disabled>Taller</button>
+        <button mat-raised-button color="primary" color="primary" (click)="layout3d=true">Same Height</button>
+        <button mat-raised-button color="primary" color="primary" (click)="layout3d=true" disabled>Shorter</button>
+        
+    </section>
+    <section class="reach-selector">
+        <label for="reach-selector">Weapon Reach</label>
+        <button mat-raised-button color="primary" color="primary" (click)="layout3d=false" id="reach-selector" disabled>Short</button>
+        <button mat-raised-button color="primary" color="primary" (click)="layout3d=true">Normal</button>
+        <button mat-raised-button color="primary" color="primary" (click)="layout3d=true" disabled>Long</button>
+    </section>
+    <button class="roll" mat-raised-button color="primary" (click)="roll()">Roll</button>
+    <div class="result">Result: {{result}}</div>
 </section>

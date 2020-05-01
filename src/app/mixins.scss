@@ -1,0 +1,15 @@
+@mixin perspectiveRotateXY($XRoatation, $YRotation) {
+    -webkit-transform: perspective(600px) rotateX($XRoatation) rotateY($YRotation);
+    -moz-transform: perspective(600px) rotateX($XRoatation) rotateY($YRotation);
+    -ms-transform: perspective(600px) rotateX($XRoatation) rotateY($YRotation);
+    -o-transform: perspective(600px) rotateX($XRoatation) rotateY($YRotation);
+    transform: perspective(600px) rotateX($XRoatation) rotateY($YRotation);
+}
+
+@mixin perspectiveRotateXZ($XRoatation, $ZRotation) {
+    -webkit-transform: perspective(600px) rotateX($XRoatation) rotateZ($ZRotation);
+    -moz-transform: perspective(600px) rotateX($XRoatation) rotateZ($ZRotation);
+    -ms-transform: perspective(600px) rotateX($XRoatation) rotateZ($ZRotation);
+    -o-transform: perspective(600px) rotateX($XRoatation) rotateZ($ZRotation);
+    transform: perspective(600px) rotateX($XRoatation) rotateZ($ZRotation);
+}

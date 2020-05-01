@@ -14,6 +14,8 @@ export class HitLocationComponent implements OnInit {
 
   public result: string ='';
   public layout3d: boolean = false;
+  public attackDirection: number = 0;
+  public rotation: number = 0;
 
   ngOnInit(): void {
   }
@@ -28,6 +30,34 @@ export class HitLocationComponent implements OnInit {
       'left thighs', 'left knee', 'left calf', 'left foot',
       'right thighs', 'right knee', 'right calf', 'right foot',
     ][diceRoll]
+  }
+
+  setAttackDirection(direction: number) {
+    this.attackDirection = direction;
+  }
+
+  set2DLayout() {
+    this.rotation = 0;
+    this.layout3d = false;
+  }
+
+  set3DLayout() {
+    this.layout3d = true;
+  }
+
+  rotateLeft() {
+    this.rotation = this.rotation + 60;
+    console.log(this.rotation);
+    if(this.rotation >= 360)
+      this.rotation = 0
+    console.log(this.rotation);
+  }
+
+  rotateRight(){
+    this.rotation = this.rotation - 60;
+    if(this.rotation < 0)
+      this.rotation = 360 + this.rotation;
+    console.log(this.rotation);
   }
 
 }
