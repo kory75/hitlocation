@@ -1,7 +1,7 @@
 .page {
     display: grid;
     grid-template-columns:  350px auto 350px;
-    grid-template-rows:  10vh 6vh 59vh 20vh 5vh;
+    grid-template-rows:  10vh 6vh auto 300px 50px;
     padding: 0;
     header {
         grid-column: 1 / 4;

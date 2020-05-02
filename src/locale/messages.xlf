@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="d7e528cb4a5924339b26d37541a8acfa54742b63" datatype="html">
+        <source>Bipedal</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/hit-location/hit-location.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="e0bbf0f8153103118d594a4adef0d78d3c2892c6" datatype="html">
+        <source>Rotate: </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/hit-location/hit-location.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4b50899e46bbd3c09a56ea71ce850302122c7e2f" datatype="html">
+        <source>Front</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/hit-location/hit-location.component.html</context>
+          <context context-type="linenumber">61</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5bdb00ce67794d01e6931844cdb657e390fddae3" datatype="html">
+        <source>Taller</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/hit-location/hit-location.component.html</context>
+          <context context-type="linenumber">88</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="86cdef2c9b935cc3dc4f69fd32937d445749c477" datatype="html">
+        <source>Same Height</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/hit-location/hit-location.component.html</context>
+          <context context-type="linenumber">89</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f95250efeef392e33acb67f52f9545f9867104af" datatype="html">
+        <source>Shorter</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/hit-location/hit-location.component.html</context>
+          <context context-type="linenumber">90</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5a1e709cd920a6da83594e77d94b3eeef790dee9" datatype="html">
+        <source>Short</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/hit-location/hit-location.component.html</context>
+          <context context-type="linenumber">95</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="077e90416bdae39a40441d0b94c5a9e8fcad4514" datatype="html">
+        <source>Normal</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/hit-location/hit-location.component.html</context>
+          <context context-type="linenumber">96</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cc9b45ec71d8d8bdb5d85cf1de2576804a631b5e" datatype="html">
+        <source>Long</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/hit-location/hit-location.component.html</context>
+          <context context-type="linenumber">97</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d8cf3f724fe690f52f6626341250e4665b9134bf" datatype="html">
+        <source>Result: <x id="INTERPOLATION" equiv-text="{{result}}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/hit-location/hit-location.component.html</context>
+          <context context-type="linenumber">100</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="20371277706eedf7fd8a3f51633ca5d801cd4fc2" datatype="html">
+        <source> Name </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/hit-table/hit-table.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3ce220e83c037fd600947cc5ab402b47561d6cd1" datatype="html">
+        <source> <x id="INTERPOLATION" equiv-text="{{element.name, select, lArm {left arm} lHand {left hand}  rArm {right arm} }}"/> </source>
+        <target> <x id="INTERPOLATION" equiv-text="{{element.name, select, lArm {left arm} lHand {left hand}  rArm {right arm} }}"/> </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/hit-table/hit-table.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="37213e766e073aecddeb4d8b9e0f22f6db226395" datatype="html">
+        <source> Front </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/hit-table/hit-table.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="0a377c55ec94972ef111d1c1374cd399e487b6ec" datatype="html">
+        <source> Front Left </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/hit-table/hit-table.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2a90b024d1abc0a7e6a396c1bedf5ba04b8efbfe" datatype="html">
+        <source> Front Right </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/hit-table/hit-table.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="19e984f8fbfe3bce1000c67751881b5fec482a33" datatype="html">
+        <source> Back Left </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/hit-table/hit-table.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7698fda7116333cdc4d0f4f0da48f6efdf1441c8" datatype="html">
+        <source> Back Right </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/hit-table/hit-table.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="941059a5091a9a8e7062171240704bda22d64e40" datatype="html">
+        <source> Back </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/hit-table/hit-table.component.html</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="b2dd8c6aa3abe5d020220dc30973344c15453bec" datatype="html">
+        <source> Taller </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/hit-table/hit-table.component.html</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f9a2a3b836003a526e32ee140e26de71975601c1" datatype="html">
+        <source> Shorter </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/hit-table/hit-table.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cb32264344b690bab0550c79666d68319a9db06f" datatype="html">
+        <source> Short Reach </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/hit-table/hit-table.component.html</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="973cd3245292f1c2486c43fd6614ab4c640eca7f" datatype="html">
+        <source> Long Reach </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/hit-table/hit-table.component.html</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

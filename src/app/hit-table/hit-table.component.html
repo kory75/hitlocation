@@ -1,0 +1,53 @@
+<table mat-table [dataSource]="hitLocations" class="mat-elevation-z8">
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef i18n> Name </th>
+      <td mat-cell *matCellDef="let element" i18n> {{element.name}} </td>
+    </ng-container>
+    <ng-container matColumnDef="base">
+      <th mat-header-cell *matHeaderCellDef i18n> Front </th>
+      <td mat-cell *matCellDef="let element"> {{element.base}}% </td>
+    </ng-container>
+    <ng-container matColumnDef="frontLeft">
+      <th mat-header-cell *matHeaderCellDef i18n> Front Left </th>
+      <td mat-cell *matCellDef="let element"> {{element.base + element.frontLeft}}% </td>
+    </ng-container>
+    <ng-container matColumnDef="frontRight">
+      <th mat-header-cell *matHeaderCellDef i18n> Front Right </th>
+      <td mat-cell *matCellDef="let element"> {{element.base + element.frontRight}}% </td>
+    </ng-container>
+    <ng-container matColumnDef="backLeft">
+        <th mat-header-cell *matHeaderCellDef i18n> Back Left </th>
+        <td mat-cell *matCellDef="let element"> {{element.base + element.backLeft}}% </td>
+      </ng-container>
+    <ng-container matColumnDef="backRight">
+    <th mat-header-cell *matHeaderCellDef i18n> Back Right </th>
+    <td mat-cell *matCellDef="let element"> {{element.base + element.backRight}}% </td>
+    </ng-container>
+    <ng-container matColumnDef="back">
+        <th mat-header-cell *matHeaderCellDef i18n> Back </th>
+        <td mat-cell *matCellDef="let element"> {{element.base + element.back}}% </td>
+    </ng-container>
+
+    <ng-container matColumnDef="taller">
+        <th mat-header-cell *matHeaderCellDef i18n> Taller </th>
+        <td mat-cell *matCellDef="let element"> {{element.base + element.taller}}% </td>
+    </ng-container>
+    <ng-container matColumnDef="shorter">
+        <th mat-header-cell *matHeaderCellDef i18n> Shorter </th>
+        <td mat-cell *matCellDef="let element"> {{element.base + element.shorter}}% </td>
+    </ng-container>
+
+    <ng-container matColumnDef="shortReach">
+        <th mat-header-cell *matHeaderCellDef i18n> Short Reach </th>
+        <td mat-cell *matCellDef="let element"> {{element.base + element.shortReach}}% </td>
+    </ng-container>
+    <ng-container matColumnDef="longReach">
+        <th mat-header-cell *matHeaderCellDef i18n> Long Reach </th>
+        <td mat-cell *matCellDef="let element"> {{element.base + element.longReach}}% </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+  
+<table>

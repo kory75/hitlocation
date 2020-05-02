@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { LocationService } from '../location.service';
 
 
 @Component({
@@ -10,7 +11,9 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class HitLocationComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private _locationService: LocationService
+  ) { }
 
   public result: string ='';
   public layout3d: boolean = false;
@@ -21,15 +24,13 @@ export class HitLocationComponent implements OnInit {
   }
 
   roll() {
-    const diceRoll = Math.floor(Math.random() * 22);
-    this.result = [
-      'skull cap', 'face',  
-      'left shoulder', 'left upper arm', 'left lower arm', 'left hand',
-      'right shoulder', 'right upper arm', 'right lower arm', 'right hand',
-      'chest', 'shoulder blade', 'stomach', 'spine', 'pelvis',
-      'left thighs', 'left knee', 'left calf', 'left foot',
-      'right thighs', 'right knee', 'right calf', 'right foot',
-    ][diceRoll]
+    const diceRoll = Math.floor(Math.random() * 100 + 1);
+    
+    this.result = this._locationService.findRoll(
+      diceRoll,
+      ['front','frontLeft','backLeft','back','backRight','frontRight'][this.attackDirection],
+      'same',
+      'normal').name + ' ( ' + diceRoll + '% )';
   }
 
   setAttackDirection(direction: number) {

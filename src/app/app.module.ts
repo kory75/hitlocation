@@ -8,16 +8,20 @@ import { HomeComponent } from './home/home.component';
 import { HitLocationComponent } from './hit-location/hit-location.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-
+import { MatTableModule } from '@angular/material/table';
 
 import { AdsenseModule } from 'ng2-adsense';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HitTableComponent } from './hit-table/hit-table.component';
+import { LocationService } from './location.service';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    HitLocationComponent
+    HitLocationComponent,
+    HitTableComponent
   ],
   imports: [
     BrowserModule,
@@ -29,9 +33,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     MatButtonModule,
     MatIconModule,
+    MatTableModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    LocationService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
