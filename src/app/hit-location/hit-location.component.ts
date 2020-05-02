@@ -30,7 +30,7 @@ export class HitLocationComponent implements OnInit {
       diceRoll,
       ['front','frontLeft','backLeft','back','backRight','frontRight'][this.attackDirection],
       'same',
-      'normal').name + ' ( ' + diceRoll + '% )';
+      'normal').humanReadable + ' ( ' + diceRoll + '% )';
   }
 
   setAttackDirection(direction: number) {
@@ -48,17 +48,14 @@ export class HitLocationComponent implements OnInit {
 
   rotateLeft() {
     this.rotation = this.rotation + 60;
-    console.log(this.rotation);
     if(this.rotation >= 360)
       this.rotation = 0
-    console.log(this.rotation);
   }
 
   rotateRight(){
     this.rotation = this.rotation - 60;
     if(this.rotation < 0)
       this.rotation = 360 + this.rotation;
-    console.log(this.rotation);
   }
 
 }

@@ -10,4 +10,5 @@ export class LocationModel {
     public shorter: number;
     public shortReach: number;
     public longReach: number;
+    public humanReadable: string;
 }

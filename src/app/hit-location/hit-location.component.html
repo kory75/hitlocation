@@ -1,5 +1,5 @@
 <section class="hit-location-type-selector">
-    <button mat-raised-button color="primary" i18n>Bipedal</button> 
+    <button mat-raised-button color="primary" >Bipedal</button> 
     <button mat-raised-button color="primary" disabled >Quadrupedal</button>
     <button mat-raised-button color="primary" disabled>Mounted</button>
     <button mat-raised-button color="primary" disabled>Serpent</button>
@@ -16,7 +16,7 @@
         <button mat-fab color="primary" (click)="set3DLayout()">
             <i class="material-icons">3d_rotation</i>
         </button>
-        <label for="viewmode" i18n>Rotate: </label>
+        <label for="viewmode" >Rotate: </label>
         <div class="rotate-button-holder">
             <button mat-fab color="primary" (click)="rotateRight()" id="viewmode"  [disabled]="!layout3d">
                 <i class="material-icons">rotate_right</i>
@@ -58,7 +58,7 @@
                     <i  class="material-icons attack-direction attack-front" 
                         [ngClass]="{'selected': attackDirection===0}" 
                         (click)="setAttackDirection(0)">keyboard_arrow_up</i>
-                    <span i18n>Front</span>
+                    <span >Front</span>
                 </div>
             </div>
             <div class="hexagon-column column-right">
@@ -85,17 +85,17 @@
     
     <section class="height-selector">
         <label for="hight-selector">Target Height</label>
-        <button mat-raised-button color="primary" color="primary" (click)="layout3d=false" id="hight-selector" disabled i18n>Taller</button>
-        <button mat-raised-button color="primary" color="primary" (click)="layout3d=true" i18n>Same Height</button>
-        <button mat-raised-button color="primary" color="primary" (click)="layout3d=true" disabled i18n>Shorter</button>
+        <button mat-raised-button color="primary" color="primary" (click)="layout3d=false" id="hight-selector" disabled >Taller</button>
+        <button mat-raised-button color="primary" color="primary" (click)="layout3d=true" >Same Height</button>
+        <button mat-raised-button color="primary" color="primary" (click)="layout3d=true" disabled >Shorter</button>
         
     </section>
     <section class="reach-selector">
         <label for="reach-selector">Weapon Reach</label>
-        <button mat-raised-button color="primary" color="primary" (click)="layout3d=false" id="reach-selector" disabled i18n>Short</button>
-        <button mat-raised-button color="primary" color="primary" (click)="layout3d=true" i18n>Normal</button>
-        <button mat-raised-button color="primary" color="primary" (click)="layout3d=true" disabled i18n>Long</button>
+        <button mat-raised-button color="primary" color="primary" (click)="layout3d=false" id="reach-selector" disabled >Short</button>
+        <button mat-raised-button color="primary" color="primary" (click)="layout3d=true" >Normal</button>
+        <button mat-raised-button color="primary" color="primary" (click)="layout3d=true" disabled >Long</button>
     </section>
     <button class="roll" mat-raised-button color="primary" (click)="roll()">Roll for Hit Location ( D100 )</button>
-    <div class="result" i18n>Result: {{result}}</div>
+    <div class="result" >Result: {{result}}</div>
 </section>
