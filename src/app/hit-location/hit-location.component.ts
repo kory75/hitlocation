@@ -19,6 +19,8 @@ export class HitLocationComponent implements OnInit {
   public layout3d: boolean = false;
   public attackDirection: number = 0;
   public rotation: number = 0;
+  public height: string = 'same';
+  public reach: string = 'normal';
 
   ngOnInit(): void {
   }
@@ -29,8 +31,7 @@ export class HitLocationComponent implements OnInit {
     this.result = this._locationService.findRoll(
       diceRoll,
       ['front','frontLeft','backLeft','back','backRight','frontRight'][this.attackDirection],
-      'same',
-      'normal').humanReadable + ' ( ' + diceRoll + '% )';
+      this.height, this.reach).humanReadable + ' ( ' + diceRoll + '% )';
   }
 
   setAttackDirection(direction: number) {
@@ -56,6 +57,14 @@ export class HitLocationComponent implements OnInit {
     this.rotation = this.rotation - 60;
     if(this.rotation < 0)
       this.rotation = 360 + this.rotation;
+  }
+
+  setHeight(newHeight: string) {
+    this.height = newHeight;
+  }
+
+  setReach(newReach: string) {
+    this.reach = newReach;
   }
 
 }

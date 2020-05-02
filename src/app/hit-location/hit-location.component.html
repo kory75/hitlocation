@@ -85,16 +85,16 @@
     
     <section class="height-selector">
         <label for="hight-selector">Target Height</label>
-        <button mat-raised-button color="primary" color="primary" (click)="layout3d=false" id="hight-selector" disabled >Taller</button>
-        <button mat-raised-button color="primary" color="primary" (click)="layout3d=true" >Same Height</button>
-        <button mat-raised-button color="primary" color="primary" (click)="layout3d=true" disabled >Shorter</button>
+        <button mat-raised-button color="primary" color="primary" (click)="setHeight('taller')" id="hight-selector">Taller</button>
+        <button mat-raised-button color="primary" color="primary" (click)="setHeight('same')" >Same Height</button>
+        <button mat-raised-button color="primary" color="primary" (click)="setHeight('shorter')" disabled >Shorter</button>
         
     </section>
     <section class="reach-selector">
         <label for="reach-selector">Weapon Reach</label>
-        <button mat-raised-button color="primary" color="primary" (click)="layout3d=false" id="reach-selector" disabled >Short</button>
-        <button mat-raised-button color="primary" color="primary" (click)="layout3d=true" >Normal</button>
-        <button mat-raised-button color="primary" color="primary" (click)="layout3d=true" disabled >Long</button>
+        <button mat-raised-button color="primary" color="primary" (click)="setReach('shortReach')" id="reach-selector" disabled >Short</button>
+        <button mat-raised-button color="primary" color="primary" (click)="setReach('normal')" >Normal</button>
+        <button mat-raised-button color="primary" color="primary" (click)="setReach('longReach')" disabled >Long</button>
     </section>
     <button class="roll" mat-raised-button color="primary" (click)="roll()">Roll for Hit Location ( D100 )</button>
     <div class="result" >Result: {{result}}</div>
