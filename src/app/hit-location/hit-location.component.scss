@@ -131,11 +131,161 @@
         font-size: 80px;
         transition: all 0.5s ease;
         pointer-events: none;
+        &.hit-marker {
+            color: red;
+            margin-top: -200px;
+            margin-left: 158px;
+            font-size: 16px;
+            font-weight: bold;
+            &:not(.bipedal), &.none {
+                display: none;
+            }
+            &.bipedal.face {
+                margin-top: -220px;
+                margin-left: 158px;
+            }
+            &.bipedal.skull {
+                margin-top: -228px;
+                margin-left: 158px;
+            }
+            &.bipedal.neck {
+                margin-top: -213px;
+                margin-left: 158px;
+            }
+
+            &.bipedal.rShoulder {
+                margin-top: -208px;
+                margin-left: 151px;
+            }
+            &.bipedal.lShoulder {
+                margin-top: -208px;
+                margin-left: 164px;
+            }
+            &.bipedal.chest, &.bipedal.spine {
+                margin-top: -200px;
+                margin-left: 158px;
+            }
+            &.bipedal.heart {
+                margin-top: -202px;
+                margin-left: 161px;
+            }
+            &.bipedal.langs {
+                margin-top: -202px;
+                margin-left: 155px;
+            }
+            &.bipedal.abdomen  {
+                margin-top: -194px;
+                margin-left: 158px;
+            }
+            &.bipedal.hips  {
+                margin-top: -190px;
+                margin-left: 158px;
+            }
+            &.bipedal.lShoulderblade  {
+                margin-top: -203px;
+                margin-left: 163px;
+            }
+            &.bipedal.rShoulderblade  {
+                margin-top: -203px;
+                margin-left: 152px;
+            }
+
+            &.bipedal.lArm {
+                margin-top: -208px;
+                margin-left: 172px;
+            }
+            &.bipedal.lElbow {
+                margin-top: -208px;
+                margin-left: 177px;
+            }
+            &.bipedal.lForeArm {
+                margin-top: -208px;
+                margin-left: 182px;
+            }
+            &.bipedal.lHand {
+                margin-top: -208px;
+                margin-left: 187px;
+            }
+
+            &.bipedal.rArm {
+                margin-top: -208px;
+                margin-left: 142px;
+            }
+            &.bipedal.rElbow {
+                margin-top: -208px;
+                margin-left: 138px;
+            }
+            &.bipedal.rForeArm {
+                margin-top: -208px;
+                margin-left: 131px;
+            }
+            &.bipedal.rHand {
+                margin-top: -208px;
+                margin-left: 127px;
+            }
+
+            &.bipedal.lThight {
+                margin-top: -179px;
+                margin-left: 164px;
+            }
+            &.bipedal.lKnee {
+                margin-top: -173px;
+                margin-left: 164px;
+            }
+            &.bipedal.lCalf, &.bipedal.lShin {
+                margin-top: -167px;
+                margin-left: 164px;
+            }
+            &.bipedal.lAnkel {
+                margin-top: -164px;
+                margin-left: 164px;
+            }
+            &.bipedal.lFoot {
+                margin-top: -161px;
+                margin-left: 164px;
+            }
+
+            &.bipedal.rThight {
+                margin-top: -179px;
+                margin-left: 151px;
+            }
+            &.bipedal.rKnee {
+                margin-top: -173px;
+                margin-left: 151px;
+            }
+            &.bipedal.rCalf, &.bipedal.rShin {
+                margin-top: -167px;
+                margin-left: 151px;
+            }
+            &.bipedal.rAnkel {
+                margin-top: -164px;
+                margin-left: 151px;
+            }
+            &.bipedal.rFoot {
+                margin-top: -161px;
+                margin-left: 151px;
+            }
+            
+            &.layout3d {
+                display: none;
+                font-size: 20px;
+                margin-top: -330px;
+                margin-left: 63px;
+            }
+        }
+        &.serpent {
+            margin-top: -230px;
+            margin-left: 135px;
+        }
         &.layout3d {
             margin-top: -330px;
             font-size: 200px;
             margin-left: 63px;
             @include perspectiveRotateXY(-50deg, 0deg);
+            &.serpent {
+                margin-top: -240px;
+                margin-left: 135px;
+            }
         }
         &.direction60 {
             @include perspectiveRotateXY(-50deg, -60deg);

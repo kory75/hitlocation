@@ -1,8 +1,8 @@
 <section class="hit-location-type-selector">
-    <button mat-raised-button color="primary" >Bipedal</button> 
-    <button mat-raised-button color="primary" disabled >Quadrupedal</button>
+    <button mat-raised-button [color]="targetType === 'bipedal' ? 'accent' : 'primary'" (click)="setTargetType('bipedal')">Bipedal</button> 
+    <button mat-raised-button color="primary" disabled>Quadrupedal</button>
     <button mat-raised-button color="primary" disabled>Mounted</button>
-    <button mat-raised-button color="primary" disabled>Serpent</button>
+    <button mat-raised-button [color]="targetType === 'serpent' ? 'accent' : 'primary'" (click)="setTargetType('serpent')">Serpent</button>
     <button mat-raised-button color="primary" disabled>Bipedal Winged</button>
     <button mat-raised-button color="primary" disabled>Quadrupedal Winged</button>
     <button mat-raised-button color="primary" disabled>Insect</button>
@@ -12,8 +12,8 @@
 <section class="hit-location-holder">
     <section class="layout-selector">
         <label for="viewmode">Layout: </label>
-        <button mat-fab color="primary" (click)="set2DLayout()" id="viewmode">2D</button>
-        <button mat-fab color="primary" (click)="set3DLayout()">
+        <button mat-fab [color]="layout3d ? 'primary' : 'accent'" (click)="set2DLayout()" id="viewmode">2D</button>
+        <button mat-fab [color]="layout3d ? 'accent' : 'primary'" (click)="set3DLayout()">
             <i class="material-icons">3d_rotation</i>
         </button>
         <label for="viewmode" >Rotate: </label>
@@ -74,27 +74,85 @@
                 </div>
             </div>
         </section>
-        <i  class="material-icons target"
+        <i  class="material-icons target" *ngIf="targetType === 'bipedal'"
             [ngClass]="{'layout3d': layout3d,
                         'direction60': rotation===60, 
                         'direction120': rotation===120,
                         'direction180': rotation===180,
                         'direction240': rotation===240,
                         'direction300': rotation===300}">accessibility</i>
+        <span   class="hit-marker target" 
+                [ngClass]="getTargetMarkClass()">x</span>
+        <svg class="target serpent" 
+        *ngIf="targetType === 'serpent'" 
+        [ngClass]="{'layout3d': layout3d,
+                        'direction60': rotation===60, 
+                        'direction120': rotation===120,
+                        'direction180': rotation===180,
+                        'direction240': rotation===240,
+                        'direction300': rotation===300}"
+        version="1.0" xmlns="http://www.w3.org/2000/svg"
+                        width="40pt" height="60pt" viewBox="0 0 975.000000 1280.000000"
+                        preserveAspectRatio="xMidYMid meet">
+                       <g transform="translate(0.000000,1280.000000) scale(0.100000,-0.100000)"
+                       fill="#000000" stroke="none">
+                       <path d="M2432 12784 c-101 -27 -198 -90 -297 -195 -67 -70 -264 -369 -387
+                       -584 -138 -242 -263 -527 -322 -733 -56 -194 -70 -294 -71 -502 0 -252 29
+                       -393 138 -660 49 -121 51 -129 57 -250 8 -144 26 -207 91 -307 45 -68 144
+                       -165 215 -210 34 -22 54 -47 95 -123 83 -151 223 -375 313 -500 45 -63 99
+                       -146 120 -185 36 -67 164 -250 227 -326 l30 -36 -20 -84 c-100 -413 -360 -935
+                       -801 -1609 -247 -378 -368 -587 -488 -845 -347 -746 -457 -1477 -332 -2199 11
+                       -61 18 -111 17 -112 -1 -1 -27 -9 -57 -19 -30 -9 -102 -42 -160 -72 -398 -205
+                       -666 -549 -754 -968 -45 -214 -56 -409 -36 -616 50 -513 281 -1029 553 -1235
+                       108 -82 147 -94 367 -115 273 -25 612 -46 980 -60 341 -13 1311 -7 1620 10
+                       l174 10 81 -33 c189 -78 364 -128 505 -145 47 -6 186 -15 310 -21 124 -6 358
+                       -17 520 -25 997 -50 1735 -36 2345 44 39 6 110 13 158 16 49 3 101 11 115 17
+                       15 5 113 27 217 48 219 45 416 94 595 150 69 21 163 48 210 60 47 12 101 32
+                       121 45 20 13 65 36 100 50 127 53 266 119 358 169 91 49 97 54 148 134 262
+                       401 334 1025 184 1608 -80 311 -270 696 -465 943 -175 223 -482 465 -804 636
+                       -111 59 -132 74 -137 98 -14 61 -99 267 -151 365 -112 213 -211 342 -476 620
+                       -174 182 -259 294 -324 427 -91 188 -96 349 -14 520 62 130 149 230 340 394
+                       159 135 330 304 419 415 68 84 226 314 235 343 5 16 20 18 113 18 97 0 114 3
+                       166 27 111 52 184 132 220 242 21 60 22 176 3 239 l-14 46 45 28 c129 81 202
+                       278 159 427 -10 32 -16 59 -14 60 2 1 26 15 53 31 79 45 161 135 180 197 29
+                       98 14 208 -41 306 l-29 51 27 28 c39 41 77 124 90 195 18 105 -16 232 -87 316
+                       l-27 32 20 57 c42 124 37 239 -18 349 -27 56 -106 142 -154 169 -16 9 -15 17
+                       18 125 19 64 65 178 101 255 167 349 265 607 273 717 4 55 1 74 -17 112 -44
+                       90 -141 114 -243 59 -93 -50 -274 -235 -473 -484 -54 -68 -132 -160 -173 -204
+                       -79 -85 -207 -252 -249 -322 -22 -37 -29 -43 -59 -43 -19 0 -76 -7 -126 -16
+                       -155 -26 -244 -88 -303 -209 -28 -58 -48 -149 -40 -185 5 -22 0 -28 -45 -48
+                       -66 -30 -141 -106 -177 -179 -33 -69 -43 -188 -21 -263 l14 -45 -58 -37 c-66
+                       -43 -119 -109 -149 -188 -32 -83 -23 -195 23 -293 l35 -73 -37 -38 c-122 -124
+                       -132 -321 -24 -488 18 -26 17 -27 -19 -67 -20 -22 -49 -64 -64 -93 -25 -48
+                       -28 -63 -28 -154 0 -96 2 -103 38 -178 24 -48 59 -97 92 -130 l53 -53 -82
+                       -109 c-165 -222 -381 -412 -696 -614 -488 -312 -745 -601 -830 -934 -42 -163
+                       -35 -323 21 -490 56 -168 132 -292 303 -496 175 -209 391 -518 374 -536 -3 -3
+                       -104 0 -224 5 -377 18 -1079 6 -1424 -24 -36 -3 -117 -10 -180 -16 -108 -9
+                       -158 -15 -370 -40 -275 -33 -842 -138 -992 -185 -17 -5 -18 13 -18 288 0 380
+                       25 600 104 938 92 393 191 656 446 1180 178 366 234 499 311 730 89 270 138
+                       520 161 818 7 83 16 152 21 152 4 0 22 -7 38 -16 36 -18 93 -12 124 14 28 23
+                       190 225 240 298 22 33 103 125 180 205 201 208 391 433 519 614 19 27 58 57
+                       115 90 57 33 116 80 178 140 75 74 98 105 131 173 53 108 69 200 54 305 l-11
+                       78 43 107 c103 251 139 421 139 657 1 467 -162 888 -628 1620 -117 184 -225
+                       294 -347 354 -205 102 -383 72 -558 -95 -42 -41 -79 -72 -82 -69 -8 9 -203 66
+                       -293 86 -120 27 -300 49 -403 49 -187 0 -421 -42 -613 -110 l-107 -37 -79 76
+                       c-43 42 -101 88 -129 103 -103 56 -225 71 -332 42z"/>
+                       </g>
+                       </svg>                
     </section>
     
     <section class="height-selector">
         <label for="hight-selector">Target Height</label>
-        <button mat-raised-button color="primary" color="primary" (click)="setHeight('taller')" id="hight-selector">Taller</button>
-        <button mat-raised-button color="primary" color="primary" (click)="setHeight('same')" >Same Height</button>
-        <button mat-raised-button color="primary" color="primary" (click)="setHeight('shorter')" disabled >Shorter</button>
+        <button mat-raised-button color="primary" [color]="height === 'taller' ? 'accent' : 'primary'" (click)="setHeight('taller')" id="hight-selector">Taller</button>
+        <button mat-raised-button color="primary" [color]="height === 'same' ? 'accent' : 'primary'" (click)="setHeight('same')" >Same Height</button>
+        <button mat-raised-button color="primary" [color]="height === 'shorter' ? 'accent' : 'primary'" (click)="setHeight('shorter')" disabled >Shorter</button>
         
     </section>
     <section class="reach-selector">
         <label for="reach-selector">Weapon Reach</label>
-        <button mat-raised-button color="primary" color="primary" (click)="setReach('shortReach')" id="reach-selector" disabled >Short</button>
-        <button mat-raised-button color="primary" color="primary" (click)="setReach('normal')" >Normal</button>
-        <button mat-raised-button color="primary" color="primary" (click)="setReach('longReach')" disabled >Long</button>
+        <button mat-raised-button color="primary" [color]="reach === 'shortReach' ? 'accent' : 'primary'" (click)="setReach('shortReach')" id="reach-selector" disabled >Short</button>
+        <button mat-raised-button color="primary" [color]="reach === 'normal' ? 'accent' : 'primary'" (click)="setReach('normal')" >Normal</button>
+        <button mat-raised-button color="primary" [color]="reach === 'longReach' ? 'accent' : 'primary'" (click)="setReach('longReach')" disabled >Long</button>
     </section>
     <button class="roll" mat-raised-button color="primary" (click)="roll()">Roll for Hit Location ( D100 )</button>
     <div class="result" >Result: {{result}}</div>

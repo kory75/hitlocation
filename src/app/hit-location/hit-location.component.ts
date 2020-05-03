@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { LocationService } from '../location.service';
+import { LocationModel } from '../location.model';
 
 
 @Component({
@@ -16,22 +17,31 @@ export class HitLocationComponent implements OnInit {
   ) { }
 
   public result: string ='';
+  public resultName: string ='';
   public layout3d: boolean = false;
   public attackDirection: number = 0;
   public rotation: number = 0;
   public height: string = 'same';
   public reach: string = 'normal';
+  public targetType: string = 'bipedal';
+  
 
   ngOnInit(): void {
   }
 
   roll() {
     const diceRoll = Math.floor(Math.random() * 100 + 1);
-    
-    this.result = this._locationService.findRoll(
+
+    let rollResult: LocationModel = this._locationService.findRoll(
+      this.targetType,
       diceRoll,
       ['front','frontLeft','backLeft','back','backRight','frontRight'][this.attackDirection],
-      this.height, this.reach).humanReadable + ' ( ' + diceRoll + '% )';
+      this.height, 
+      this.reach
+    )
+
+    this.result = rollResult.humanReadable + ' ( ' + diceRoll + '% )';
+    this.resultName = rollResult.name;
   }
 
   setAttackDirection(direction: number) {
@@ -65,6 +75,28 @@ export class HitLocationComponent implements OnInit {
 
   setReach(newReach: string) {
     this.reach = newReach;
+  }
+
+  setTargetType(newTargetType: string) {
+    this.targetType = newTargetType;
+    this.result = '';
+    this.resultName = '';
+  }
+
+  getTargetMarkClass() {
+    let result = {
+      'layout3d': this.layout3d,
+      'direction60': this.rotation===60, 
+      'direction120': this.rotation===120,
+      'direction180': this.rotation===180,
+      'direction240': this.rotation===240,
+      'direction300': this.rotation===300,
+      'none' : this.resultName === ''
+    }
+    result[this.targetType] = true;
+    result[this.resultName] = true;
+
+    return result;
   }
 
 }
