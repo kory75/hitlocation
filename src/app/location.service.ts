@@ -115,7 +115,7 @@ export class LocationService {
         (direction && direction !== 'front' ? row[direction] : 0) + 
         (height && height !== 'same' ? row[height] : 0) + 
         (reach && reach !== 'normal' ? row[reach] : 0);
-      return rowTotal > roll ? true : false;
+      return rowTotal >= roll ? true : false;
     });
   }
 
