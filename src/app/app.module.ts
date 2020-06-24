@@ -9,11 +9,14 @@ import { HitLocationComponent } from './hit-location/hit-location.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
+import { RouterModule } from '@angular/router';
 
 import { AdsenseModule } from 'ng2-adsense';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HitTableComponent } from './hit-table/hit-table.component';
 import { LocationService } from './location.service';
+
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 
 @NgModule({
@@ -34,10 +37,11 @@ import { LocationService } from './location.service';
     MatButtonModule,
     MatIconModule,
     MatTableModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    RouterModule
   ],
   providers: [
-    LocationService
+    LocationService,
   ],
   bootstrap: [AppComponent]
 })
