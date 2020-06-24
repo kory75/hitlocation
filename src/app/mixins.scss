@@ -13,3 +13,195 @@
     -o-transform: perspective(600px) rotateX($XRoatation) rotateZ($ZRotation);
     transform: perspective(600px) rotateX($XRoatation) rotateZ($ZRotation);
 }
+
+$hitMarkerOffsetTop: -157px;
+$hitMarkerOffsetLeft: 126px;
+
+$hitMarkerOffset3DTop: -188px;
+$hitMarkerOffset3DLeft: 79px;
+
+$hitMarkerMultiplayer3DTop: 93/50;
+$hitMarkerMultiplayer3DLeft: 235/96;
+
+$human: (
+  (face, -78, 32),
+  (skull, -78, 32),
+  (neck, -78, 32),
+    /*
+  (rShoulder, -208px, 151px),
+  (lShoulder, -208px, 164px),
+  (chest, -200px, 158px),
+  (spine, -200px, 158px),
+  (heart, -202px, 161px),
+  (langs, -202px, 155px),
+  (abdomen, -194px, 158px),
+  (hips, -190px, 158px),
+  (lShoulderblade, -203px, 163px),
+  (rShoulderblade, -203px, 152px),
+  (lArm, -208px, 172px),
+  (lElbow, -208px, 177px),
+  (lForeArm, -208px, 182px),
+  (lHand, -208px, 187px),
+  (rArm, -208px, 172px),
+  (rElbow, -208px, 177px),
+  (rForeArm, -208px, 131px),
+  (rHand, -208xp, 127px),
+  */
+  (lThight, -54, 37),
+  (lKnee, -24, 37),
+  (lCalf, -14, 37),
+  (lShin, -14, 37),
+  (lAnkel, -4, 37),
+  (lFoot, 0, 37),
+  
+  (rThight, -54, 27),
+  (rKnee, -24, 27),
+  (rCalf, -14, 27),
+  (rShin, -14, 27),
+  (rAnkel, -4, 27),
+  (rFoot, 0, 27),
+);
+
+@mixin hitMarkerPosition() {
+
+    @each $label, $markerTop, $markerLeft in $human {
+        
+        &.bipedal.#{$label} {
+            margin-top: $markerTop + $hitMarkerOffsetTop;
+            margin-left: $markerLeft + $hitMarkerOffsetLeft;
+            &.layout3d {
+                margin-top: $markerTop * $hitMarkerMultiplayer3DTop + $hitMarkerOffset3DTop;
+                margin-left: $markerLeft * $hitMarkerMultiplayer3DLeft + $hitMarkerOffset3DLeft;
+            }
+        }
+        
+    }
+   
+/*
+    &.bipedal.face {
+        margin-top: -220px;
+        margin-left: 158px;
+    }
+    &.bipedal.skull {
+        margin-top: -228px;
+        margin-left: 158px;
+    }
+    &.bipedal.neck {
+        margin-top: -213px;
+        margin-left: 158px;
+    }
+
+    &.bipedal.rShoulder {
+        margin-top: -208px;
+        margin-left: 151px;
+    }
+    &.bipedal.lShoulder {
+        margin-top: -208px;
+        margin-left: 164px;
+    }
+    &.bipedal.chest, &.bipedal.spine {
+        margin-top: -200px;
+        margin-left: 158px;
+    }
+    &.bipedal.heart {
+        margin-top: -202px;
+        margin-left: 161px;
+    }
+    &.bipedal.langs {
+        margin-top: -202px;
+        margin-left: 155px;
+    }
+    &.bipedal.abdomen  {
+        margin-top: -194px;
+        margin-left: 158px;
+    }
+    &.bipedal.hips  {
+        margin-top: -190px;
+        margin-left: 158px;
+    }
+    &.bipedal.lShoulderblade  {
+        margin-top: -203px;
+        margin-left: 163px;
+    }
+    &.bipedal.rShoulderblade  {
+        margin-top: -203px;
+        margin-left: 152px;
+    }
+
+    &.bipedal.lArm {
+        margin-top: -208px;
+        margin-left: 172px;
+    }
+    &.bipedal.lElbow {
+        margin-top: -208px;
+        margin-left: 177px;
+    }
+    &.bipedal.lForeArm {
+        margin-top: -208px;
+        margin-left: 182px;
+    }
+    &.bipedal.lHand {
+        margin-top: -208px;
+        margin-left: 187px;
+    }
+
+    &.bipedal.rArm {
+        margin-top: -208px;
+        margin-left: 142px;
+    }
+    &.bipedal.rElbow {
+        margin-top: -208px;
+        margin-left: 138px;
+    }
+    &.bipedal.rForeArm {
+        margin-top: -208px;
+        margin-left: 131px;
+    }
+    &.bipedal.rHand {
+        margin-top: -208px;
+        margin-left: 127px;
+    }
+
+    &.bipedal.lThight {
+        margin-top: -179px;
+        margin-left: 164px;
+    }
+    &.bipedal.lKnee {
+        margin-top: -173px;
+        margin-left: 164px;
+    }
+    &.bipedal.lCalf, &.bipedal.lShin {
+        margin-top: -167px;
+        margin-left: 164px;
+    }
+    &.bipedal.lAnkel {
+        margin-top: -164px;
+        margin-left: 164px;
+    }
+    &.bipedal.lFoot {
+        margin-top: -161px;
+        margin-left: 164px;
+    }
+
+    &.bipedal.rThight {
+        margin-top: -179px;
+        margin-left: 151px;
+    }
+    &.bipedal.rKnee {
+        margin-top: -173px;
+        margin-left: 151px;
+    }
+    &.bipedal.rCalf, &.bipedal.rShin {
+        margin-top: -167px;
+        margin-left: 151px;
+    }
+    &.bipedal.rAnkel {
+        margin-top: -164px;
+        margin-left: 151px;
+    }
+    &.bipedal.rFoot {
+        margin-top: -161px;
+        margin-left: 151px;
+    }
+    */
+}

@@ -10,22 +10,7 @@
     <button mat-raised-button color="primary" disabled>Arachnid</button>
 </section>
 <section class="hit-location-holder">
-    <section class="layout-selector">
-        <label for="viewmode">Layout: </label>
-        <button mat-fab [color]="layout3d ? 'primary' : 'accent'" (click)="set2DLayout()" id="viewmode">2D</button>
-        <button mat-fab [color]="layout3d ? 'accent' : 'primary'" (click)="set3DLayout()">
-            <i class="material-icons">3d_rotation</i>
-        </button>
-        <label for="viewmode" >Rotate: </label>
-        <div class="rotate-button-holder">
-            <button mat-fab color="primary" (click)="rotateRight()" id="viewmode"  [disabled]="!layout3d">
-                <i class="material-icons">rotate_right</i>
-            </button>
-            <button mat-fab color="primary" (click)="rotateLeft()" id="viewmode" [disabled]="!layout3d">
-                <i class="material-icons">rotate_left</i>
-            </button>
-        </div>
-    </section>
+    
     <section class="hexagon-column">
         <section class="hexagon-holder" [ngClass]="{'layout3d': layout3d, 
                                                     'direction60': rotation===60, 
@@ -74,15 +59,17 @@
                 </div>
             </div>
         </section>
-        <i  class="material-icons target" *ngIf="targetType === 'bipedal'"
+        <img class="material-icons target species-human" src="/assets/images/species/species-human-sm.png"
+            *ngIf="targetType === 'bipedal'"
+            
             [ngClass]="{'layout3d': layout3d,
-                        'direction60': rotation===60, 
-                        'direction120': rotation===120,
-                        'direction180': rotation===180,
-                        'direction240': rotation===240,
-                        'direction300': rotation===300}">accessibility</i>
+                    'direction60': rotation===60, 
+                    'direction120': rotation===120,
+                    'direction180': rotation===180,
+                    'direction240': rotation===240,
+                    'direction300': rotation===300}">
         <span   class="hit-marker target" 
-                [ngClass]="getTargetMarkClass()">x</span>
+                [ngClass]="getTargetMarkClass()">x</span>        
         <svg class="target serpent" 
         *ngIf="targetType === 'serpent'" 
         [ngClass]="{'layout3d': layout3d,
@@ -141,18 +128,36 @@
                        </svg>                
     </section>
     
-    <section class="height-selector">
-        <label for="hight-selector">Target Height</label>
-        <button mat-raised-button color="primary" [color]="height === 'taller' ? 'accent' : 'primary'" (click)="setHeight('taller')" id="hight-selector">Taller</button>
-        <button mat-raised-button color="primary" [color]="height === 'same' ? 'accent' : 'primary'" (click)="setHeight('same')" >Same Height</button>
-        <button mat-raised-button color="primary" [color]="height === 'shorter' ? 'accent' : 'primary'" (click)="setHeight('shorter')" disabled >Shorter</button>
-        
-    </section>
-    <section class="reach-selector">
-        <label for="reach-selector">Weapon Reach</label>
-        <button mat-raised-button color="primary" [color]="reach === 'shortReach' ? 'accent' : 'primary'" (click)="setReach('shortReach')" id="reach-selector" disabled >Short</button>
-        <button mat-raised-button color="primary" [color]="reach === 'normal' ? 'accent' : 'primary'" (click)="setReach('normal')" >Normal</button>
-        <button mat-raised-button color="primary" [color]="reach === 'longReach' ? 'accent' : 'primary'" (click)="setReach('longReach')" disabled >Long</button>
+    <section class="control-buttons">
+        <section class="height-selector">
+            <label for="hight-selector">Target Height</label>
+            <button mat-raised-button color="primary" [color]="height === 'taller' ? 'accent' : 'primary'" (click)="setHeight('taller')" id="hight-selector">Taller</button>
+            <button mat-raised-button color="primary" [color]="height === 'same' ? 'accent' : 'primary'" (click)="setHeight('same')" >Same</button>
+            <button mat-raised-button color="primary" [color]="height === 'shorter' ? 'accent' : 'primary'" (click)="setHeight('shorter')" disabled >Shorter</button>
+            
+        </section>
+        <section class="reach-selector">
+            <label for="reach-selector">Weapon Reach</label>
+            <button mat-raised-button color="primary" [color]="reach === 'shortReach' ? 'accent' : 'primary'" (click)="setReach('shortReach')" id="reach-selector" disabled >Short</button>
+            <button mat-raised-button color="primary" [color]="reach === 'normal' ? 'accent' : 'primary'" (click)="setReach('normal')" >Normal</button>
+            <button mat-raised-button color="primary" [color]="reach === 'longReach' ? 'accent' : 'primary'" (click)="setReach('longReach')" disabled >Long</button>
+        </section>
+        <section class="layout-selector">
+            <label for="viewmode">Layout: </label>
+            <button mat-fab [color]="layout3d ? 'primary' : 'accent'" (click)="set2DLayout()" id="viewmode">2D</button>
+            <button mat-fab [color]="layout3d ? 'accent' : 'primary'" (click)="set3DLayout()">
+                <i class="material-icons">3d_rotation</i>
+            </button>
+            <label for="viewmode" >Rotate: </label>
+            <div class="rotate-button-holder">
+                <button mat-fab color="primary" (click)="rotateRight()" id="viewmode"  [disabled]="!layout3d || rotation===0">
+                    <i class="material-icons">rotate_right</i>
+                </button>
+                <button mat-fab color="primary" (click)="rotateLeft()" id="viewmode" [disabled]="!layout3d || rotation===300">
+                    <i class="material-icons">rotate_left</i>
+                </button>
+            </div>
+        </section>
     </section>
     <button class="roll" mat-raised-button color="primary" (click)="roll()">Roll for Hit Location ( D100 )</button>
     <div class="result" >Result: {{result}}</div>
