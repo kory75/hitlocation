@@ -7,7 +7,7 @@
     <button mat-raised-button color="primary" disabled>Quadrupedal Winged</button>
     <button mat-raised-button color="primary" disabled>Insect</button>
     <button mat-raised-button color="primary" disabled>Insect Winged</button>
-    <button mat-raised-button color="primary" disabled>Arachnid</button>
+    <button mat-raised-button [color]="targetType === 'arachnid' ? 'accent' : 'primary'" (click)="setTargetType('arachnid')">Arachnid</button>
 </section>
 <section class="hit-location-holder">
     
@@ -133,7 +133,7 @@
             <label for="hight-selector">Target Height</label>
             <button mat-raised-button color="primary" [color]="height === 'taller' ? 'accent' : 'primary'" (click)="setHeight('taller')" id="hight-selector">Taller</button>
             <button mat-raised-button color="primary" [color]="height === 'same' ? 'accent' : 'primary'" (click)="setHeight('same')" >Same</button>
-            <button mat-raised-button color="primary" [color]="height === 'shorter' ? 'accent' : 'primary'" (click)="setHeight('shorter')" disabled >Shorter</button>
+            <button mat-raised-button color="primary" [color]="height === 'shorter' ? 'accent' : 'primary'" (click)="setHeight('shorter')" >Shorter</button>
             
         </section>
         <section class="reach-selector">

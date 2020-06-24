@@ -20,8 +20,8 @@ export class HitTableComponent implements OnInit {
   public displayedColumnsShort: string[] = ['name', 'base', 'frontLeft', 'frontRight','backLeft', 'backRight', 'back'];
 
   ngOnInit(): void {
-    this.hitLocations = this._locationService.getAllWithTotal();
-    this.roleTable = this._locationService.getAllAccumulated();
+    this.hitLocations = this._locationService.getAllWithTotal('bipedal');
+    this.roleTable = this._locationService.getAllAccumulated('bipedal');
   }
 
   getRoleValue(i: number, name: string): string {
