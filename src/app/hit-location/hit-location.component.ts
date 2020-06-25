@@ -81,6 +81,8 @@ export class HitLocationComponent implements OnInit {
     this.targetType = newTargetType;
     this.result = '';
     this.resultName = '';
+    this.rotation = 0;
+    this.layout3d = false;
   }
 
   getTargetMarkClass() {

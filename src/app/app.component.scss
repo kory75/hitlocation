@@ -1,7 +1,8 @@
-.page {
+.app-page {
     display: grid;
     grid-template-columns:  350px auto 350px;
-    grid-template-rows:  10vh 6vh auto 50px;
+    grid-template-rows:  10vh 6vh 78vh 6vh;
+    
     padding: 0;
     header {
         grid-column: 1 / 4;
@@ -38,8 +39,13 @@
         grid-column: 1 / 4;
         grid-row: 4 / 5;
         background-color: rgb(20, 9, 168);
-        color: white
-
+        color: white;
+        a {
+            text-decoration: none;
+            &:hover, &:visited, &:link {
+                color: white;
+            } 
+        }
     }
     .ads-left {
         grid-column: 1 / 2;

@@ -68,7 +68,14 @@
                     'direction180': rotation===180,
                     'direction240': rotation===240,
                     'direction300': rotation===300}">
-        <span   class="hit-marker target" 
+        <span   
+            [ngClass]="{'layout3d': layout3d,
+            'direction60': rotation===60, 
+            'direction120': rotation===120,
+            'direction180': rotation===180,
+            'direction240': rotation===240,
+            'direction300': rotation===300}"
+            class="hit-marker target" 
                 [ngClass]="getTargetMarkClass()">x</span>        
         <svg class="target serpent" 
         *ngIf="targetType === 'serpent'" 
@@ -125,7 +132,16 @@
                        -293 86 -120 27 -300 49 -403 49 -187 0 -421 -42 -613 -110 l-107 -37 -79 76
                        c-43 42 -101 88 -129 103 -103 56 -225 71 -332 42z"/>
                        </g>
-                       </svg>                
+                       </svg> 
+        <img class="material-icons target species-spider" width="85px" src="/assets/images/species/spider-1.png"
+        *ngIf="targetType === 'arachnid'"
+        
+        [ngClass]="{'layout3d': layout3d,
+                'direction60': rotation===60, 
+                'direction120': rotation===120,
+                'direction180': rotation===180,
+                'direction240': rotation===240,
+                'direction300': rotation===300}">               
     </section>
     
     <section class="control-buttons">
@@ -145,7 +161,7 @@
         <section class="layout-selector">
             <label for="viewmode">Layout: </label>
             <button mat-fab [color]="layout3d ? 'primary' : 'accent'" (click)="set2DLayout()" id="viewmode">2D</button>
-            <button mat-fab [color]="layout3d ? 'accent' : 'primary'" (click)="set3DLayout()">
+            <button mat-fab [color]="layout3d ? 'accent' : 'primary'" (click)="set3DLayout()" [disabled]="targetType !== 'bipedal'">
                 <i class="material-icons">3d_rotation</i>
             </button>
             <label for="viewmode" >Rotate: </label>
